@@ -12,12 +12,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest
-class InstructionsControllerTest {
+class HooverInputControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
-    private final String TEST_INSTRUCTIONS_STRING = "{" +
+    private final String TEST_HOOVER_INPUT_STRING = "{" +
         "  \"roomSize\" : [5, 5]," +
         "  \"coords\" : [1, 2]," +
         "  \"patches\" : [" +
@@ -29,8 +29,8 @@ class InstructionsControllerTest {
         "}";
 
     @Test
-    public void controllerShouldDeserializeInstructionsStringToInstructionsObject() throws Exception {
-        this.mockMvc.perform(post("/sendInstructions").contentType(MediaType.APPLICATION_JSON).content(TEST_INSTRUCTIONS_STRING))
+    public void controllerShouldReturnHooverOutputJsonWhenSentHooverInput() throws Exception {
+        this.mockMvc.perform(post("/sendInstructions").contentType(MediaType.APPLICATION_JSON).content(TEST_HOOVER_INPUT_STRING))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.coords[0]", is(1)))
             .andExpect(jsonPath("$.coords[1]", is(2)))
