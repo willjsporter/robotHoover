@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 public class HooverService {
 
     public HooverOutput run(HooverInput hooverInput) {
-        return new HooverOutput(hooverInput.getCoords(), hooverInput.getPatches().size());
+        int numberPatchesCleaned = (int) hooverInput.getPatches().stream()
+            .filter(patch -> patch.equals(hooverInput.getCoords()))
+            .count();
+        return new HooverOutput(hooverInput.getCoords(), numberPatchesCleaned);
     }
 }
