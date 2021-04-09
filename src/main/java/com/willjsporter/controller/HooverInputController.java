@@ -1,7 +1,7 @@
 package com.willjsporter.controller;
 
 import com.willjsporter.model.HooverInput;
-import com.willjsporter.model.HooverService;
+import com.willjsporter.service.HooverService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,5 +1,8 @@
-package com.willjsporter.model;
+package com.willjsporter.service;
 
+import com.willjsporter.model.HooverInput;
+import com.willjsporter.model.HooverOutput;
+import com.willjsporter.model.Pair;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -28,5 +31,17 @@ class HooverServiceTest {
         );
 
         assertThat(hooverService.run(testInput), is(new HooverOutput(Pair. of(1, 2), 1)));
+    }
+
+    @Test
+    public void inputWithInstructionsShouldCountZeroPatchesIfNoneCleaned () {
+        final HooverInput testInput = new HooverInput(
+            Pair.of(5, 5),
+            Pair.of(4, 4),
+            List.of(Pair.of(1, 2), Pair.of(2, 2), Pair.of(2, 3)),
+            "SWSS"
+        );
+
+        assertThat(hooverService.run(testInput), is(new HooverOutput(Pair. of(3, 1), 0)));
     }
 }
