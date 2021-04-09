@@ -17,9 +17,6 @@ public class Instructions {
         this.instructions = instructions;
     }
 
-    public Instructions() {
-    }
-
     public Pair getRoomSize() {
         return roomSize;
     }

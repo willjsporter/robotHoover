@@ -6,7 +6,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest
@@ -29,6 +31,9 @@ class InstructionsControllerTest {
     @Test
     public void controllerShouldDeserializeInstructionsStringToInstructionsObject() throws Exception {
         this.mockMvc.perform(post("/sendInstructions").contentType(MediaType.APPLICATION_JSON).content(TEST_INSTRUCTIONS_STRING))
-            .andExpect(status().isOk());
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.coords[0]", is(1)))
+            .andExpect(jsonPath("$.coords[1]", is(2)))
+            .andExpect(jsonPath("$.patches", is(3)));
     }
 }
