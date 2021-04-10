@@ -44,4 +44,16 @@ class HooverServiceTest {
 
         assertThat(hooverService.run(testInput), is(new HooverOutput(Pair. of(3, 1), 0)));
     }
+
+    @Test
+    public void whenInputAsksHooverToMoveOutOfBounds_hooverShouldRemainStatic () {
+        final HooverInput testInput = new HooverInput(
+            Pair.of(5, 5),
+            Pair.of(3, 1),
+            List.of(Pair.of(1, 2), Pair.of(2, 2), Pair.of(2, 3)),
+            "EEEEENNNNSSSSSSSSSSSSWWWWWWWWWWENE"
+        );
+
+        assertThat(hooverService.run(testInput), is(new HooverOutput(Pair. of(2, 1), 0)));
+    }
 }
