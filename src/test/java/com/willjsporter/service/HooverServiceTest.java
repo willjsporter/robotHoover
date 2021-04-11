@@ -68,4 +68,16 @@ class HooverServiceTest {
 
         assertThat(hooverService.run(testInput), is(new HooverOutput(Pair. of(1, 1), 2)));
     }
+
+    @Test
+    public void whenInstructionsMoveHooverOverSameDirtyPatch_hooverShouldOnlyTheseAsCleanedOnce () {
+        final HooverInput testInput = new HooverInput(
+            Pair.of(5, 5),
+            Pair.of(0, 2),
+            List.of(Pair.of(1, 2), Pair.of(2, 2), Pair.of(2, 3)),
+            "EEWEWEE"
+        );
+
+        assertThat(hooverService.run(testInput), is(new HooverOutput(Pair. of(3, 2), 2)));
+    }
 }
