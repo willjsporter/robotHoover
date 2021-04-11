@@ -30,10 +30,10 @@ class HooverInputControllerTest {
 
     @Test
     public void controllerShouldReturnHooverOutputJsonWhenSentHooverInput() throws Exception {
-        this.mockMvc.perform(post("/sendInstructions").contentType(MediaType.APPLICATION_JSON).content(TEST_HOOVER_INPUT_STRING))
+        this.mockMvc.perform(post("/sendInput").contentType(MediaType.APPLICATION_JSON).content(TEST_HOOVER_INPUT_STRING))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.coords[0]", is(1)))
-            .andExpect(jsonPath("$.coords[1]", is(2)))
-            .andExpect(jsonPath("$.patches", is(3)));
+            .andExpect(jsonPath("$.coords[1]", is(3)))
+            .andExpect(jsonPath("$.patches", is(1)));
     }
 }
