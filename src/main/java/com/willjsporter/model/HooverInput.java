@@ -24,17 +24,24 @@ public class HooverInput {
         if(checkXYAreAtLeast(roomSize, 1)) {
             return roomSize;
         } else {
-            throw new RuntimeException("Invalid roomSize: x and y coordinates must be greater than 0.");
+            throw new IllegalArgumentException("Invalid roomSize: x and y coordinates must be greater than 0.");
         }
     }
 
     private Pair validatePositionOrThrow(Pair roomSize, Pair coords, String identifier) {
         if(coords == null) {
-            throw new RuntimeException(String.format("Error: %s must be specified.", identifier));
+            throw new IllegalArgumentException(String.format("Error: %s must be specified.", identifier));
         } else if(isPairInsideRoom(roomSize, coords)) {
             return coords;
         } else {
-            throw new RuntimeException(String.format("Invalid %s: %s must be within specified roomSize but was [%d, %d].", identifier, identifier, coords.getX(), coords.getY()));
+            throw new IllegalArgumentException(
+                String.format(
+                    "Invalid %s: %s must be within specified roomSize but was [%d, %d].",
+                    identifier,
+                    identifier,
+                    coords.getX(),
+                    coords.getY()
+            ));
         }
     }
 
