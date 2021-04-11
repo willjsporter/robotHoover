@@ -6,7 +6,7 @@ import com.willjsporter.model.Pair;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -26,7 +26,7 @@ class HooverServiceTest {
         final HooverInput testInput = new HooverInput(
             Pair.of(5, 5),
             Pair.of(1, 2),
-            List.of(Pair.of(1, 2), Pair.of(2, 2), Pair.of(2, 3)),
+            Set.of(Pair.of(1, 2), Pair.of(2, 2), Pair.of(2, 3)),
             ""
         );
 
@@ -38,7 +38,7 @@ class HooverServiceTest {
         final HooverInput testInput = new HooverInput(
             Pair.of(5, 5),
             Pair.of(4, 4),
-            List.of(Pair.of(1, 2), Pair.of(2, 2), Pair.of(2, 3)),
+            Set.of(Pair.of(1, 2), Pair.of(2, 2), Pair.of(2, 3)),
             "SWSS"
         );
 
@@ -50,7 +50,7 @@ class HooverServiceTest {
         final HooverInput testInput = new HooverInput(
             Pair.of(5, 5),
             Pair.of(3, 1),
-            List.of(Pair.of(1, 2), Pair.of(2, 2), Pair.of(2, 3)),
+            Set.of(Pair.of(1, 2), Pair.of(2, 2), Pair.of(2, 3)),
             "EEEEENNNNSSSSSSSSSSSSWWWWWWWWWWENE"
         );
 
@@ -62,7 +62,7 @@ class HooverServiceTest {
         final HooverInput testInput = new HooverInput(
             Pair.of(5, 5),
             Pair.of(3, 1),
-            List.of(Pair.of(1, 2), Pair.of(2, 2), Pair.of(2, 3)),
+            Set.of(Pair.of(1, 2), Pair.of(2, 2), Pair.of(2, 3)),
             "NWWSWE"
         );
 
@@ -74,7 +74,7 @@ class HooverServiceTest {
         final HooverInput testInput = new HooverInput(
             Pair.of(5, 5),
             Pair.of(0, 2),
-            List.of(Pair.of(1, 2), Pair.of(2, 2), Pair.of(2, 3)),
+            Set.of(Pair.of(1, 2), Pair.of(2, 2), Pair.of(2, 3)),
             "EEWEWEE"
         );
 
