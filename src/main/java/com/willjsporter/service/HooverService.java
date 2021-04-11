@@ -34,11 +34,4 @@ public class HooverService {
             return move(instructions.substring(1), directionMap.get(instructions.charAt(0)).moveInDirection(position, input.getRoomSize()), input, patchesCleaned);
         }
     }
-
-    //do out of bounds check - should stay still in this case AAA
-    //do proper counting - AAA
-    //do no duplicate counting - AAA
-    //do errors for bad input in controller (invalid start position, negative numbers, not a HooverInput object)
-    //persist input and output to db
-
 }
