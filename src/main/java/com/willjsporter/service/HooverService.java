@@ -18,22 +18,22 @@ public class HooverService {
     );
 
     public HooverOutput run(HooverInput hooverInput) {
-        int numberPatchesCleaned = (int) hooverInput.getPatches().stream()
-            .filter(patch -> patch.equals(hooverInput.getCoords()))
-            .count();
-        return new HooverOutput(move(hooverInput.getInstructions(), hooverInput.getCoords(), hooverInput.getRoomSize()), numberPatchesCleaned);
+        return move(hooverInput.getInstructions(), hooverInput.getCoords(), hooverInput, 0);
     }
 
-    private Pair move(String instructions, Pair position, Pair roomSize) {
+    private HooverOutput move(String instructions, Pair position, HooverInput input, int patchesCleaned) {
+        if(input.getPatches().contains(position)) {
+            patchesCleaned += 1;
+        }
         if(instructions.length() == 0) {
-            return position;
+            return new HooverOutput(position, patchesCleaned);
         } else {
-            return move(instructions.substring(1), directionMap.get(instructions.charAt(0)).moveInDirection(position, roomSize), roomSize);
+            return move(instructions.substring(1), directionMap.get(instructions.charAt(0)).moveInDirection(position, input.getRoomSize()), input, patchesCleaned);
         }
     }
 
     //do out of bounds check - should stay still in this case AAA
-    //do proper counting
+    //do proper counting - AAA
     //do no duplicate counting
     //do errors for bad input in controller (invalid start position, negative numbers, not a HooverInput object)
     //persist input and output to db
