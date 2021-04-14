@@ -5,7 +5,7 @@ This is a project that sets out an area and a starting point for a robot hoover,
 If the instructions attempt to take the hoover out of the bounds of the defined area, it will stay still.
 Dirty patches are also specified on input and when the robot hoover moves over a dirty patch, it cleans it.
 The program returns a final position and the number of patches cleaned.
-Both the input sent to the controller and the output returned are saved to a PostgreSQL database. Details on how to configure this are below. 
+Both the input sent to the controller and the output returned are saved to a PostgreSQL database. Details on how to configure the database before running the program are below. 
 
 The user specifies input by sending data as JSON (format shown below) to an endpoint from where the instructions can be processed.
 
