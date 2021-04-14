@@ -57,14 +57,16 @@ Instructions are sent to the hoover via an HTTP POST request to the `/sendInput`
 ```
 
 #### Explaining how the program runs 
-This would indicate that there is a 5x5 area and that the hoover will start at the square (1,2): two from western boundary and 3 from the southern boundary.
+The above input would dictate the following:
+
+There is a 5x5 area and that the hoover will start at the square (1,2): two from western boundary and 3 from the southern boundary.
 
 There are patches at coordinates (1,0), (2,2) and (2,3).
 
-The navigation instructions mean that the hoover will pass through the dirty patch at (2,3) after 4 moves.
+The instructions mean that the hoover will pass through the dirty patch at (2,3) after 4 moves.
 
 The hoover will then finish at position (1,3) and will have cleaned one patch.
-The output must be returned in the below format (populated with the data that would be generated for the given input):
+The output is returned in the below format (populated with the data that would be generated for the given input):
 
 ```json
 {
