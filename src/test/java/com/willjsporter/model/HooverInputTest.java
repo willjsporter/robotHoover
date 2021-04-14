@@ -86,4 +86,19 @@ class HooverInputTest {
             assertThat(e.getMessage(), is("Invalid patch location: patch location must be within specified roomSize but was [2, 6]."));
         }
     }
+
+    @Test
+    public void hooverInputInitializeFailsWhenPatchesIsNull() {
+        try {
+            hooverInput = new HooverInput(
+                Pair.of(5, 5),
+                Pair.of(2, 2),
+                null,
+                "NESW"
+            );
+            fail();
+        } catch (RuntimeException e) {
+            assertThat(e.getMessage(), is("Error: patches must be specified (but can be empty)."));
+        }
+    }
 }

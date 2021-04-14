@@ -27,10 +27,19 @@ public class HooverInput {
     public HooverInput(Pair roomSize, Pair coords, Set<Pair> patches, String instructions) {
         this.roomSize = setRoomSizeOrThrow(roomSize);
         this.coords = validatePositionOrThrow(roomSize, coords, "starting point");
-        this.patches = patches.stream()
-            .map(patch -> validatePositionOrThrow(roomSize, patch, "patch location"))
-            .collect(Collectors.toSet());
+        this.patches = setPatchesOrThrow(roomSize, patches);
         this.instructions = instructions;
+    }
+
+    private Set<Pair> setPatchesOrThrow(Pair roomSize, Set<Pair> patches) {
+        try {
+            return patches.stream()
+                .map(patch -> validatePositionOrThrow(roomSize, patch, "patch location"))
+                .collect(Collectors.toSet());
+        } catch (NullPointerException npe) {
+            throw new IllegalArgumentException("Error: patches must be specified (but can be empty).");
+        }
+
     }
 
     private Pair setRoomSizeOrThrow(Pair roomSize) {
