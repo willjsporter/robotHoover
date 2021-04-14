@@ -29,7 +29,7 @@ To run the program, type
 `mvn spring-boot:run` 
 into the terminal from the home directory of the project.
 
-##How to send instructions to the hoover
+## How to send instructions to the hoover
  
 This can be done via curl or via an application like Postman.
 
@@ -56,7 +56,7 @@ Instructions are sent to the hoover via an HTTP POST request to the `/sendInput`
 }
 ```
 
-###Explaining how the program runs 
+#### Explaining how the program runs 
 This would indicate that there is a 5x5 area and that the hoover will start at the square (1,2): two from western boundary and 3 from the southern boundary.
 
 There are patches at coordinates (1,0), (2,2) and (2,3).
