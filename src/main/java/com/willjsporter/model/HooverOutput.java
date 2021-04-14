@@ -1,9 +1,20 @@
 package com.willjsporter.model;
 
+import lombok.ToString;
+
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table
+@ToString
 public class HooverOutput {
 
+    @Id
+    @SequenceGenerator(name = "hoover_output_sequence", sequenceName = "hoover_output_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hoover_output_sequence")
+    private long id;
+    @OneToOne(cascade = CascadeType.ALL)
     private Pair coords;
     private int patches;
 

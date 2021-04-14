@@ -3,11 +3,17 @@ package com.willjsporter.model;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.willjsporter.controller.PairDeserializer;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 @JsonDeserialize(using = PairDeserializer.class)
 public class Pair {
 
+    @Id
+    @SequenceGenerator(name = "pair_sequence", sequenceName = "pair_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pair_sequence")
+    private long id;
     private int x;
     private int y;
 

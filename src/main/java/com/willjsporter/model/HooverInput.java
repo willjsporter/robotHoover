@@ -1,13 +1,26 @@
 package com.willjsporter.model;
 
+import lombok.ToString;
+
+import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Entity
+@Table
+@ToString
 public class HooverInput {
-
+    @Id
+    @SequenceGenerator(name = "hoover_input_sequence", sequenceName = "hoover_input_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hoover_input_sequence")
+    private long id;
+    @OneToOne(cascade = CascadeType.ALL)
     private Pair roomSize;
+    @OneToOne(cascade = CascadeType.ALL)
     private Pair coords;
+    @ElementCollection
+    @OneToMany(cascade = CascadeType.ALL , orphanRemoval = true)
     private Set<Pair> patches;
     private String instructions;
 
