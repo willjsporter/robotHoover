@@ -30,6 +30,8 @@ public class HooverInput {
         this.instructions = instructions;
     }
 
+    public HooverInput() {}
+
     private Set<Pair> setPatchesOrThrow(Pair roomSize, Set<Pair> patches) {
         try {
             return patches.stream()

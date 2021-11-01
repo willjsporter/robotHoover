@@ -26,6 +26,8 @@ public class Pair {
         this.y = y;
     }
 
+    public Pair() {}
+
     public int getX() {
         return x;
     }

@@ -23,6 +23,8 @@ public class HooverOutput {
         this.patches = patches;
     }
 
+    public HooverOutput() {}
+
     public String toJsonOutput() {
         return String.format(
             "{\n" +
