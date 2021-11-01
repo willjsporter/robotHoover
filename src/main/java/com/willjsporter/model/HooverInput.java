@@ -19,7 +19,6 @@ public class HooverInput {
     private Pair roomSize;
     @OneToOne(cascade = CascadeType.ALL)
     private Pair coords;
-    @ElementCollection
     @OneToMany(cascade = CascadeType.ALL , orphanRemoval = true)
     private Set<Pair> patches;
     private String instructions;
